@@ -148,9 +148,6 @@ services:
     image: docker.elastic.co/logstash/logstash:${STACK_VERSION}
     volumes:
       - ./pipeline/:/usr/share/logstash/pipeline/
-      - ./nginx/nginx.conf:/usr/share/logstash/conf.d/nginx.conf
-    command:
-      logstash -f /usr/share/logstash/pipeline/logstash.conf
     ports:
       - ${LOGSTASH_PORT}:4000 # my custom port
       - 5044:5044
